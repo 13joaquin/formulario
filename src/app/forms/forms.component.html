@@ -1,38 +1,65 @@
-<h1>Formulario</h1>
+<h1>Formulario <small>Joaquin Ramirez</small></h1>
 <p>Este es la tarea que nos pidio que consiste en crear un formulario en Boostrap</p>
-<form class="needs-validation" novalidate>
+<form class="needs-validation" novalidate autocomplete="off" [formGroup]="forma">
     <div>
         <div class="col-md-4 mb-3">
-            <label for="validationCustom01">Nombre</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Nombre" required>
+            <label for="inputNombre">Nombre</label>
+            <input formControlName="nombre" [class.is-invalid]="nombreNoValido" type="text" class="form-control" id="inputNombre" placeholder="First name" value="Nombre" required>
+            <small *ngIf="nombreNoValido" class="text-danger">
+                Ingrese el nombre.
+            </small>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="validationCustom02">Apellidos</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+            <label for="inputApellido">Apellidos</label>
+            <input formControlName="apellido" [class.is-invalid]="apellidoNoValido" type="text" class="form-control" id="inputApellido" placeholder="Last name" value="Otto" required>
+            <small *ngIf="apellidoNoValido" class="text-danger">
+                Ingrese el apellido.
+            </small>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="validationCustomUsername">Usuario</label>
+            <label for="inputUsuario">Usuario</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                <input formControlName="usuario" [class.is-invalid]="usuarioNoValido" type="text" class="form-control" id="inputUsuario" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                <small *ngIf="usuarioNoValido" class="text-danger">
+                    Ingrese el usuario.
+                </small>
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="inputAddress">Dirección</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Ave. 18, Calle 18">
+            <label for="inputDireccion">Dirección</label>
+            <input formControlName="direccion" [class.is-invalid]="direccionNoValido" type="text" class="form-control" id="inputDireccion" placeholder="Ave. 18, Calle 18">
+            <small *ngIf="direccionNoValido" class="text-danger">
+                Ingrese la dirección.
+            </small>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Correo Electronico</label>
+            <label for="inputEmail" class="col-sm-2 col-form-label">Correo Electronico</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input formControlName="correo" [class.is-invalid]="correoNoValido" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <small *ngIf="correoNoValido" class="text-danger">
+                    Ingrese el correo.
+                </small>
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input formControlName="pass1" [class.is-invalid]="pass1NoValido" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <small *ngIf="pass1NoValido" class="text-danger">
+                    Ingrese la contraseña.
+                </small>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="inputValPassword" class="col-sm-2 col-form-label">Confirmar Contraseña</label>
+            <div class="col-sm-10">
+                <input formControlName="pass2" [class.is-invalid]="pass2NoValido" type="password" class="form-control" id="inputValPassword" placeholder="Password">
+                <small *ngIf="pass2NoValido" class="text-danger">
+                    Ingrese la misma contraseña.
+                </small>
             </div>
         </div>
         <div class="form-group row">
